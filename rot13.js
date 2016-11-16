@@ -1,24 +1,5 @@
 "use strict";
 
-// rot13(string):
-//   for each character
-//     rotate the character
-//     concatenate the character to the result
-//   return result
-//
-// rotate the character(character)
-//   if character is lowercase alpha
-//     rotate the ASCII character code value with 'z' as max result
-//   else if character is uppercase alpha
-//     rotate the ASCII character code value with 'Z' as max result
-//   return character value of character code
-//
-// encrypt the ASCII character code value with maxLetter as max result
-//   add rotation amount (13) to character code
-//   if character code exceeds max result character code
-//     reduce character code by 2 rotation amounts (26) to wraparound
-//   return result character code
-
 var lowercaseMaxCode = 'z'.charCodeAt();
 var uppercaseMaxCode = 'Z'.charCodeAt();
 var rotationAmount = 13;
