@@ -19,9 +19,7 @@
 //     reduce character code by 2 rotation amounts (26) to wraparound
 //   return result character code
 
-var lowercaseMinCode = 'a'.charCodeAt();
 var lowercaseMaxCode = 'z'.charCodeAt();
-var uppercaseMinCode = 'A'.charCodeAt();
 var uppercaseMaxCode = 'Z'.charCodeAt();
 var rotationAmount = 13;
 
@@ -34,11 +32,19 @@ function encryptCharCode(charCode, maxCode) {
   return charCode;
 }
 
+function isLower(character) {
+  return character >= 'a' && character <= 'z';
+}
+
+function isUpper(character) {
+  return character >= 'A' && character <= 'Z';
+}
+
 function encryptChar(character) {
   var charCode = character.charCodeAt();
-  if (charCode >= lowercaseMinCode && charCode <= lowercaseMaxCode) {
+  if (isLower(character)) {
     charCode = encryptCharCode(charCode, lowercaseMaxCode);
-  } else if (charCode >= uppercaseMinCode && charCode <= uppercaseMaxCode) {
+  } else if (isUpper(character)) {
     charCode = encryptCharCode(charCode, uppercaseMaxCode);
   }
 
